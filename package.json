@@ -38,7 +38,7 @@
     "@types/markdown-it": "^14.1.2",
     "@types/react": "^18.3.3",
     "@types/sanitize-html": "^2.13.0",
-    "@typescript-eslint/parser": "^8.1.0",
+    "@typescript-eslint/parser": "^8.8.0",
     "astro-eslint-parser": "^1.0.2",
     "eslint": "^9.9.0",
     "eslint-plugin-astro": "^1.2.3",
