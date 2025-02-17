@@ -29,7 +29,7 @@
     "typescript": "^5.7.2"
   },
   "devDependencies": {
-    "@astrojs/react": "^3.6.3",
+    "@astrojs/react": "^4.2.0",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.2",
     "@tailwindcss/typography": "^0.5.15",
