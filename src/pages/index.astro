@@ -82,11 +82,11 @@ const socialCount = SOCIALS.filter(social => social.active).length;
           </div>
         </div>
         <img
-          src="/joanserna.png"
+          src="/assets/joan.jpg"
           class="avatar"
-          width="420"
-          height="431"
-          alt="Illustrated avatar of Joan Serna waving"
+          width="640"
+          height="640"
+          alt="Portrait of Joan Serna"
         />
       </div>
     </section>
@@ -181,7 +181,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     @apply max-w-prose text-lg text-skin-muted;
   }
   .avatar {
-    @apply order-first mx-auto h-auto w-36 rounded-full border border-skin-line bg-skin-card sm:order-none sm:w-48;
+    @apply order-first mx-auto aspect-square w-36 rounded-full border border-skin-line bg-skin-card sm:order-none sm:w-48;
   }
   .cta-row {
     @apply mt-6 flex flex-wrap items-center gap-3;
