@@ -76,9 +76,31 @@ export const CERTIFICATIONS = [
 
 export const TALKS = [
   {
-    title: "Modular Monolith with Angular & Nx: Returning to the Basics",
-    event: "ngConf Peru 2025",
-    date: "Sep 6, 2025 · Lima",
+    title: "Modular Monoliths with Angular & Nx",
+    event: "NgConf Peru 2025",
+    date: "Sep 2025",
   },
-  { title: "Speaker", event: "DevFest 2024", date: "2024" },
+  {
+    title: "Modular Monolith with Angular and Nx",
+    event: "DevFest Medellín 2024 · Google Developer Group Medellín",
+    date: "Nov 2024",
+  },
+  {
+    title: "Modular Monolith with Angular and Nx",
+    event: "DevFest Cali 2024 · Google Developer Group Cali",
+    date: "Nov 2024",
+  },
+  {
+    title: "Angular Signals",
+    event: "DevFest Bogotá 2023 · Google Developer Group Bogotá",
+    date: "Nov 2023",
+  },
+];
+
+export const MENTORING = [
+  {
+    title: "Angular Mentor",
+    event: "BeeSoft Labs",
+    date: "Jun 2021 – Jul 2022",
+  },
 ];

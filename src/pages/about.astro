@@ -4,7 +4,7 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Breadcrumbs from "@components/Breadcrumbs.astro";
 import { SITE } from "@config";
-import { CERTIFICATIONS, EXPERIENCE, TALKS } from "../data/profile";
+import { CERTIFICATIONS, EXPERIENCE, MENTORING, TALKS } from "../data/profile";
 ---
 
 <Layout
@@ -70,10 +70,10 @@ import { CERTIFICATIONS, EXPERIENCE, TALKS } from "../data/profile";
     </section>
 
     <section aria-labelledby="talks-title">
-      <h2 id="talks-title">Talks</h2>
+      <h2 id="talks-title">Talks &amp; mentoring</h2>
       <ul class="cards">
         {
-          TALKS.map(talk => (
+          [...TALKS, ...MENTORING].map(talk => (
             <li class="card">
               <p class="card-title">{talk.title}</p>
               <p class="card-meta">
