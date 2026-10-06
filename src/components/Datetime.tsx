@@ -18,7 +18,7 @@ export default function Datetime({
 }: Props) {
   return (
     <div
-      className={`flex items-center space-x-2 opacity-80 ${className}`.trim()}
+      className={`flex items-center space-x-2 text-skin-muted ${className}`.trim()}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

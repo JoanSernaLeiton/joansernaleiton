@@ -15,76 +15,111 @@ const posts = await getCollection("blog");
 const sortedPosts = getSortedPosts(posts);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
+const STACK = [
+  {
+    name: "Frontend",
+    items: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "Angular",
+      "React",
+      "Ionic",
+    ],
+  },
+  {
+    name: "Backend",
+    items: ["Node.js", "Express", "NestJS", "Laravel", "PHP", "Golang"],
+  },
+  {
+    name: "Databases",
+    items: ["PostgreSQL", "MySQL", "MongoDB", "Firebase/Firestore"],
+  },
+  { name: "Cloud & testing", items: ["AWS", "Jest", "Cypress", "Jasmine"] },
+  { name: "Mobile", items: ["Capacitor"] },
+  { name: "Other", items: ["Socket.IO", "Next.js"] },
+];
+
 const socialCount = SOCIALS.filter(social => social.active).length;
 ---
 
 <Layout>
   <Header />
   <main id="main-content">
-    <section id="hero">
-      <h1>Joan Serna</h1>
-      <a
-        target="_blank"
-        href="/rss.xml"
-        class="rss-link"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon"
-          ><path
-            d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
-          ></path><path
-            d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
-          ></path><circle cx="6" cy="18" r="2"></circle>
-        </svg>
-        <span class="sr-only">RSS Feed</span>
-      </a>
-
-      <p>
-        Sr. Software Engineer, Tech Lead and AWS Solutions Architect with a strong background in web and mobile
-        application development using modern technologies such as JavaScript,
-        HTML, CSS, Angular, React, and Typescript. I have worked on creating
-        systems and applications for diverse industries including healthcare,
-        hospitality, e-commerce, and fintech. I am a technology enthusiast,
-        always willing to learn and adopt new tools and methodologies.
-      </p>
-      <div>
+    <section id="hero" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">
+            Sr. Software Engineer · Tech Lead · AWS Solutions Architect
+          </p>
+          <h1 id="hero-title">Joan Serna</h1>
+          <p class="lead">
+            I design and build web and mobile products for healthcare,
+            hospitality, e-commerce and fintech, from interfaces to cloud
+            architecture. I lead teams, favour modern tooling such as
+            TypeScript, Angular and React, and keep learning new tools and
+            methodologies.
+          </p>
+          <div class="cta-row">
+            <a href="mailto:me@joanserna.com" class="btn btn-primary">
+              Get in touch
+            </a>
+            <a href="/posts/" class="btn btn-secondary">Read the blog</a>
+            <a href="/rss.xml" class="rss-link" title="RSS Feed">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="rss-icon"
+                aria-hidden="true"
+                ><path
+                  d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
+                ></path><path
+                  d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
+                ></path><circle cx="6" cy="18" r="2"></circle>
+              </svg>
+              <span class="sr-only">RSS feed</span>
+            </a>
+          </div>
+        </div>
         <img
-          src="/assets/dev.png"
-          class="sm:w-1/2 mx-auto"
-          alt="coding dev illustration"
+          src="/joanserna.png"
+          class="avatar"
+          width="420"
+          height="431"
+          alt="Illustrated avatar of Joan Serna waving"
         />
       </div>
-      <h3 class="text-2xl font-semibold">Tech Stack</h3>
-      <ul class="list-disc tech-stack">
-        <li>
-          <strong>Frontend:</strong> HTML, CSS, JavaScript/TypeScript, Angular, React,
-          Ionic
-        </li>
-        <li>
-          <strong>Backend:</strong> Node.js, Express, NestJS, Laravel, PHP, Golang
-        </li>
-        <li>
-          <strong>Databases:</strong> PostgreSQL, MySQL, MongoDB, Firebase/Firestore
-        </li>
-        <li><strong>Testing & DevOps:</strong> AWS, Jest, Cypress, Jasmine</li>
-        <li><strong>Mobile:</strong> Capacitor</li>
-        <li><strong>Other:</strong> Socket IO, NextJS</li>
+    </section>
+
+    <section id="tech-stack" aria-labelledby="stack-title">
+      <h2 id="stack-title">Tech stack</h2>
+      <ul class="stack-grid">
+        {
+          STACK.map(group => (
+            <li class="stack-card">
+              <h3>{group.name}</h3>
+              <ul class="chips">
+                {group.items.map(item => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </li>
+          ))
+        }
       </ul>
-      <br />
-      <h3 class="text-2xl font-semibold">Contact</h3>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
       <p>
-        If you'd like to discuss potential opportunities or collaborations,
-        please feel free to reach out to me at: <a
-          href="mailto:me@joanserna.com"
-          target="_blank">me@joanserna.com</a
-        >
+        If you'd like to discuss opportunities or collaborations, reach out at <a
+          href="mailto:me@joanserna.com">me@joanserna.com</a
+        >.
       </p>
       {
-        // only display if at least one social link is enabled
         socialCount > 0 && (
           <div class="social-wrapper">
-            <div class="social-links">Social Links:</div>
+            <span class="social-links">Find me on</span>
             <Socials />
           </div>
         )
@@ -129,45 +164,80 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 </Layout>
 
 <style>
-  /* ===== Hero Section ===== */
+  /* ===== Hero ===== */
   #hero {
-    @apply pb-6 pt-8;
+    @apply pb-8 pt-10 sm:pt-16;
+  }
+  .hero-grid {
+    @apply grid items-center gap-8 sm:grid-cols-[1fr_12rem];
+  }
+  .eyebrow {
+    @apply mb-3 font-mono text-sm font-medium uppercase tracking-wider text-skin-accent;
   }
   #hero h1 {
-    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
+    @apply mb-4 text-4xl font-bold sm:text-6xl;
   }
-  #hero .rss-link {
-    @apply mb-6;
+  .lead {
+    @apply max-w-prose text-lg text-skin-muted;
   }
-  #hero .rss-icon {
-    @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
+  .avatar {
+    @apply order-first mx-auto h-auto w-36 rounded-full border border-skin-line bg-skin-card sm:order-none sm:w-48;
   }
-  #hero p {
-    @apply my-2;
+  .cta-row {
+    @apply mt-6 flex flex-wrap items-center gap-3;
+  }
+  .btn {
+    @apply inline-flex items-center rounded-md border px-5 py-2.5 font-medium no-underline transition-colors;
+  }
+  .btn-primary {
+    @apply border-skin-accent bg-skin-accent text-skin-inverted hover:opacity-90;
+  }
+  .btn-secondary {
+    @apply border-skin-strong text-skin-base hover:border-skin-accent hover:text-skin-accent;
+  }
+  .rss-link {
+    @apply rounded-md p-2;
+  }
+  .rss-icon {
+    @apply h-6 w-6 fill-skin-accent;
+  }
+
+  /* ===== Sections ===== */
+  #tech-stack,
+  #contact,
+  #recent-posts {
+    @apply pb-6 pt-10;
+  }
+  #tech-stack h2,
+  #contact h2,
+  #recent-posts h2 {
+    @apply mb-4 text-2xl font-semibold;
+  }
+  .stack-grid {
+    @apply grid gap-4 sm:grid-cols-2;
+  }
+  .stack-card {
+    @apply rounded-lg border border-skin-line bg-skin-card p-4;
+  }
+  .stack-card h3 {
+    @apply mb-3 text-sm font-semibold uppercase tracking-wider text-skin-muted;
+  }
+  .chips {
+    @apply flex flex-wrap gap-2;
+  }
+  .chips li {
+    @apply rounded-full border border-skin-strong px-3 py-1 text-sm;
+  }
+  #contact a[href^="mailto"] {
+    @apply font-medium underline underline-offset-4;
   }
   .social-wrapper {
     @apply mt-4 flex flex-col sm:flex-row sm:items-center;
   }
   .social-links {
-    @apply mb-1 mr-2 whitespace-nowrap sm:mb-0;
-  }
-
-  /* ===== Featured & Recent Posts Sections ===== */
-  #featured,
-  #recent-posts {
-    @apply pb-6 pt-12;
-  }
-  #featured h2,
-  #recent-posts h2 {
-    @apply text-2xl font-semibold tracking-wide;
+    @apply mb-1 mr-2 whitespace-nowrap text-skin-muted sm:mb-0;
   }
   .all-posts-btn-wrapper {
     @apply my-8 text-center;
-  }
-  .tech-stack {
-    li::marker {
-      @apply text-skin-accent;
-    }
-    @apply px-8;
   }
 </style>
