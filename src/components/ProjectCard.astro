@@ -6,19 +6,29 @@ export interface Props {
   tagline: string;
   description: string;
   tags: string[];
+  level?: 2 | 3;
 }
 
-const { name, url, status, tagline, description, tags } = Astro.props;
+const {
+  name,
+  url,
+  status,
+  tagline,
+  description,
+  tags,
+  level = 3,
+} = Astro.props;
+const Heading = `h${level}` as "h2" | "h3";
 ---
 
 <li class="project">
   <div class="top">
-    <h3>
+    <Heading>
       <a href={url} target="_blank" rel="noopener noreferrer">
         {name}<span class="sr-only"> (opens in a new tab)</span>
         <span aria-hidden="true"> ↗</span>
       </a>
-    </h3>
+    </Heading>
     <span class="status">{status}</span>
   </div>
   <p class="tagline">{tagline}</p>
@@ -35,10 +45,11 @@ const { name, url, status, tagline, description, tags } = Astro.props;
   .top {
     @apply flex items-center justify-between gap-3;
   }
-  h3 {
+  .top :global(h2),
+  .top :global(h3) {
     @apply text-xl font-semibold;
   }
-  h3 a {
+  .top :global(a) {
     @apply underline decoration-skin-accent/60 underline-offset-4 hover:text-skin-accent;
   }
   .status {

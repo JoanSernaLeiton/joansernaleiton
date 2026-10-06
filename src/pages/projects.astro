@@ -18,7 +18,7 @@ import { PROJECTS } from "../data/profile";
     <h1>Projects</h1>
     <p class="lead">Products I'm building. More coming soon.</p>
     <ul class="project-list">
-      {PROJECTS.map(project => <ProjectCard {...project} />)}
+      {PROJECTS.map(project => <ProjectCard {...project} level={2} />)}
     </ul>
   </main>
   <Footer />
