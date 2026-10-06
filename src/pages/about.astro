@@ -71,18 +71,21 @@ import { CERTIFICATIONS, EXPERIENCE, MENTORING, TALKS } from "../data/profile";
 
     <section aria-labelledby="talks-title">
       <h2 id="talks-title">Talks &amp; mentoring</h2>
-      <ul class="cards">
+      <ol class="timeline">
         {
           [...TALKS, ...MENTORING].map(talk => (
-            <li class="card">
-              <p class="card-title">{talk.title}</p>
-              <p class="card-meta">
-                {talk.event} · {talk.date}
-              </p>
+            <li class="job">
+              <div class="job-head">
+                <h3>{talk.title}</h3>
+                <p class="meta">
+                  <span class="period">{talk.date}</span>
+                  <span>{talk.event}</span>
+                </p>
+              </div>
             </li>
           ))
         }
-      </ul>
+      </ol>
     </section>
   </main>
   <Footer />
