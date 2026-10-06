@@ -9,6 +9,7 @@ import Card from "@components/Card";
 import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SITE, SOCIALS } from "@config";
+import { CERTIFICATIONS, TALKS } from "../data/profile";
 
 const posts = await getCollection("blog");
 
@@ -109,6 +110,23 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       </ul>
     </section>
 
+    <section id="credentials" aria-labelledby="credentials-title">
+      <h2 id="credentials-title">Certifications & talks</h2>
+      <ul class="list-disc space-y-1 pl-5">
+        {CERTIFICATIONS.map(c => <li>{c.name}</li>)}
+        {
+          TALKS.map(t => (
+            <li>
+              {t.title === "Speaker"
+                ? `Speaker at ${t.event}`
+                : `${t.title}, ${t.event}`}
+            </li>
+          ))
+        }
+      </ul>
+      <p class="mt-3"><a href="/about/">Full experience and background →</a></p>
+    </section>
+
     <section id="contact" aria-labelledby="contact-title">
       <h2 id="contact-title">Contact</h2>
       <p>
@@ -205,11 +223,13 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   /* ===== Sections ===== */
   #tech-stack,
   #contact,
+  #credentials,
   #recent-posts {
     @apply pb-6 pt-10;
   }
   #tech-stack h2,
   #contact h2,
+  #credentials h2,
   #recent-posts h2 {
     @apply mb-4 text-2xl font-semibold;
   }

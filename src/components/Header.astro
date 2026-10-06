@@ -61,6 +61,11 @@ const { activeNav } = Astro.props;
             </a>
           </li>
           <li>
+            <a href="/about/" class={activeNav === "about" ? "active" : ""}>
+              About
+            </a>
+          </li>
+          <li>
             <a href="/tags/" class={activeNav === "tags" ? "active" : ""}>
               Tags
             </a>
@@ -150,7 +155,7 @@ const { activeNav } = Astro.props;
     @apply col-span-1;
   }
   nav a.active {
-    @apply underline decoration-2 underline-offset-8 decoration-skin-accent text-skin-accent;
+    @apply text-skin-accent underline decoration-skin-accent decoration-2 underline-offset-8;
   }
   nav a.active svg {
     @apply fill-skin-accent;

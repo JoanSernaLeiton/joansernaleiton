@@ -1,0 +1,67 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+import { SITE } from "@config";
+import { CERTIFICATIONS, EXPERIENCE, TALKS } from "../data/profile";
+---
+
+<Layout
+  title={`About | ${SITE.title}`}
+  description="Experience, certifications and talks of Joan Serna, Sr. Software Engineer, Tech Lead and AWS Solutions Architect."
+>
+  <Header activeNav="about" />
+  <Breadcrumbs />
+  <main id="main-content" class="mb-16">
+    <h1 class="text-2xl font-semibold sm:text-3xl">About</h1>
+    <p class="mt-4 max-w-3xl">{SITE.desc}</p>
+
+    <h2 class="mt-10 text-xl font-semibold">Experience</h2>
+    <ol class="mt-4 space-y-8">
+      {
+        EXPERIENCE.map(job => (
+          <li>
+            <h3 class="text-lg font-semibold">
+              {job.role} · {job.company}
+            </h3>
+            <p class="text-sm text-skin-muted">
+              {job.period} · {job.location}
+            </p>
+            <ul class="mt-2 list-disc space-y-1 pl-5">
+              {job.highlights.map(item => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </li>
+        ))
+      }
+    </ol>
+
+    <h2 class="mt-10 text-xl font-semibold">Certifications</h2>
+    <ul class="mt-4 list-disc space-y-1 pl-5">
+      {
+        CERTIFICATIONS.map(cert => (
+          <li>
+            {cert.name} <span class="text-skin-muted">· {cert.issuer}</span>
+          </li>
+        ))
+      }
+    </ul>
+
+    <h2 class="mt-10 text-xl font-semibold">Talks</h2>
+    <ul class="mt-4 list-disc space-y-1 pl-5">
+      {
+        TALKS.map(talk => (
+          <li>
+            <strong>{talk.title}</strong>
+            <span class="text-skin-muted">
+              · {talk.event} · {talk.date}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+  <Footer />
+</Layout>

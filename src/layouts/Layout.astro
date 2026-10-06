@@ -34,21 +34,48 @@ const socialImageURL = new URL(
   Astro.url.origin
 ).href;
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  headline: `${title}`,
-  image: `${socialImageURL}`,
-  datePublished: `${pubDatetime?.toISOString()}`,
-  ...(modDatetime && { dateModified: modDatetime.toISOString() }),
-  author: [
-    {
-      "@type": "Person",
-      name: `${author}`,
-      url: `${profile}`,
-    },
-  ],
-};
+const isPost = pubDatetime !== undefined;
+const structuredData = isPost
+  ? {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: `${title}`,
+      image: `${socialImageURL}`,
+      datePublished: pubDatetime.toISOString(),
+      ...(modDatetime && { dateModified: modDatetime.toISOString() }),
+      author: [
+        {
+          "@type": "Person",
+          name: `${author}`,
+          url: `${profile}`,
+        },
+      ],
+    }
+  : {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": `${SITE.website}/#website`,
+          url: SITE.website,
+          name: SITE.title,
+          description: SITE.desc,
+        },
+        {
+          "@type": "Person",
+          "@id": `${SITE.website}/#person`,
+          name: SITE.author,
+          url: SITE.website,
+          image: new URL("assets/joan.jpg", SITE.website).href,
+          jobTitle:
+            "Sr. Software Engineer, Tech Lead and AWS Solutions Architect",
+          sameAs: [
+            "https://linkedin.com/in/joansernaleiton",
+            "https://github.com/joansernaleiton",
+          ],
+        },
+      ],
+    };
 ---
 
 <!doctype html>
