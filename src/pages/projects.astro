@@ -1,0 +1,40 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+import ProjectCard from "@components/ProjectCard.astro";
+import { SITE } from "@config";
+import { PROJECTS } from "../data/profile";
+---
+
+<Layout
+  title={`Projects | ${SITE.title}`}
+  description="Products Joan Serna is building, starting with Pausita, an app that protects your eyes and never lets you miss a meeting."
+>
+  <Header activeNav="projects" />
+  <Breadcrumbs />
+  <main id="main-content">
+    <h1>Projects</h1>
+    <p class="lead">Products I'm building. More coming soon.</p>
+    <ul class="project-list">
+      {PROJECTS.map(project => <ProjectCard {...project} />)}
+    </ul>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  #main-content {
+    @apply mx-auto w-full max-w-3xl px-4 pb-8;
+  }
+  h1 {
+    @apply mt-8 text-3xl font-bold;
+  }
+  .lead {
+    @apply mb-6 mt-2 text-skin-muted;
+  }
+  .project-list {
+    @apply grid gap-4;
+  }
+</style>

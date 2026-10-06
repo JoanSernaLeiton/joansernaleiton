@@ -104,3 +104,15 @@ export const MENTORING = [
     date: "Jun 2021 – Jul 2022",
   },
 ];
+
+export const PROJECTS = [
+  {
+    name: "Pausita",
+    url: "https://pausita.app",
+    status: "Building",
+    tagline: "Rest your eyes. Never miss a meeting.",
+    description:
+      "A desktop app for Mac, Windows and Linux that applies the 20-20-20 rule to protect your eyes and shows full-screen meeting reminders that are impossible to ignore, designed with ADHD in mind.",
+    tags: ["Desktop", "Productivity", "ADHD"],
+  },
+];
