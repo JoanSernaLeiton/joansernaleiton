@@ -12,8 +12,6 @@ tags:
 description: The Next.js App Router changes where our code runs. Server Components, server actions and the caching layers can make applications faster, but only if we understand what runs on the server and what runs in the browser.
 ---
 
-# Next.js App Router - Server Components, Caching and Data Fetching
-
 ## A different mental model
 
 With the App Router, components are **Server Components by default**. They render on the server, can access databases or internal services directly and send no JavaScript for themselves to the browser. Only the components that need interactivity become Client Components.

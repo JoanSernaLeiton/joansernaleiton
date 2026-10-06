@@ -5,6 +5,7 @@ export type Site = {
   author: string;
   profile: string;
   desc: string;
+  metaDesc: string;
   title: string;
   ogImage?: string;
   lightAndDarkMode: boolean;

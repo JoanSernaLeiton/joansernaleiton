@@ -13,8 +13,6 @@ tags:
 description: AWS Elastic Beanstalk lets us deploy applications without managing the infrastructure by hand. Let's see how to package an Angular application, serve it with Node.js and deploy it with the EB CLI, and when S3 with CloudFront is a better fit.
 ---
 
-# Deploying an Angular App on AWS Elastic Beanstalk
-
 ## What is Elastic Beanstalk?
 
 Elastic Beanstalk (EB) is a service that provisions the infrastructure for us: EC2 instances, load balancer, auto scaling and health monitoring. We upload the code and EB takes care of the rest, while we can still access the underlying resources if needed.

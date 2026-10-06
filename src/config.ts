@@ -5,6 +5,8 @@ export const SITE: Site = {
   author: "Joan Serna",
   profile: "https://linkedin.com/in/joansernaleiton",
   desc: "Sr. Software Engineer, Tech Lead and AWS Solutions Architect with experience in web technologies Javascript, HTML, CSS, Angular, React. Building hybrid mobile applications and web systems, for different sectors such as health, hospitality, e-commerce and financial services. I consider myself a technology and learning enthusiast. There have never been excuses when learning something new. I love trying new technologies.",
+  metaDesc:
+    "Joan Serna is a Sr. Software Engineer, Tech Lead and AWS Solutions Architect building web and mobile products with Angular, React, NestJS and AWS.",
   title: "Joan Serna",
   ogImage: "og.png",
   lightAndDarkMode: true,

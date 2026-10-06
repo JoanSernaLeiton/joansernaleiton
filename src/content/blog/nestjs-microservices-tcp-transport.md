@@ -13,8 +13,6 @@ tags:
 description: NestJS includes a microservices module with several transports. The TCP transport is the simplest one to start with. Let's build two services that talk to each other, one using request-response and the other using events.
 ---
 
-# NestJS Microservices over TCP
-
 ## Transports in NestJS
 
 NestJS can use different transport layers for communication between services: TCP, Redis, NATS, RabbitMQ, Kafka, gRPC and others. TCP needs no extra infrastructure, so it is a great way to learn the concepts. In production you may prefer a message broker for durability and retries.

@@ -19,7 +19,10 @@ export interface Props {
 const { currentPage, totalPages, paginatedPosts, tag, tagName } = Astro.props;
 ---
 
-<Layout title={`Tag: ${tagName} | ${SITE.title}`}>
+<Layout
+  title={`Tag: ${tagName} | ${SITE.title}`}
+  description={`Articles tagged ${tagName} by Joan Serna.`}
+>
   <Header activeNav="tags" />
   <Main
     pageTitle={[`Tag:`, `${tagName}`]}

@@ -12,8 +12,6 @@ tags:
 description: Angular has changed a lot in the last few versions. Standalone components, signals, the new control flow and the inject function make our code smaller and easier to reason about. Let's see what a modern Angular component looks like today.
 ---
 
-# Modern Angular - Standalone, Signals and the New Control Flow
-
 ## Why talk about "modern" Angular?
 
 If you learned Angular a few years ago, you remember NgModules, constructors full of injected services and `*ngIf` everywhere. That code still works, but the framework has moved on and the new APIs remove a lot of boilerplate.

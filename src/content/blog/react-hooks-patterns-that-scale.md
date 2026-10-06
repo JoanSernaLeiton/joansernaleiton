@@ -12,8 +12,6 @@ tags:
 description: React applications get harder to maintain as they grow. Let's review some patterns that keep components small and predictable, custom hooks, where to keep state, and how to avoid unnecessary renders.
 ---
 
-# React Patterns That Scale - Hooks, State and Rendering
-
 ## The problem
 
 A component that starts with one `useState` can end up fetching data, formatting it, handling errors and rendering a table. At that point it is hard to test and hard to read. These patterns help us avoid that.
