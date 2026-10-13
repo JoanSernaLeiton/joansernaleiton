@@ -1,8 +1,17 @@
 export const EXPERIENCE = [
   {
     role: "Technical Lead",
+    company: "Bridgenext",
+    period: "Aug 2026 – Present",
+    location: "Remote, Colombia",
+    highlights: [
+      "Continued as Technical Lead after Bridgenext acquired CloudX, keeping the same scope: microservices on NestJS and Amazon ECS, Next.js applications and the Keycloak identity platform.",
+    ],
+  },
+  {
+    role: "Technical Lead",
     company: "CloudX",
-    period: "Sep 2025 – Present",
+    period: "Sep 2025 – Aug 2026",
     location: "Remote, Colombia",
     highlights: [
       "Led a microservices architecture based on NestJS and Amazon ECS, ensuring high availability and scalability from the ground up.",
